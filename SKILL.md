@@ -94,10 +94,13 @@ When an implementation attempt in major `N` requires replanning, preserve the ol
 
 Use major `N+1` as the insertion point for the replanned work.
 
-The surrounding planning workflow decides whether replanning also requires splitting or combining work.
-After that work structure is decided, apply the normal minor-number and dependency rules starting from major `N+1`.
+Within `N+1`, assign the next available minor letter.
+For example, if `T4-A` already exists, assign the replanned work `T4-B`.
 
-Existing future assignments at `N+1` or later may become misaligned after this insertion.
+The surrounding planning workflow decides whether replanning also requires splitting or combining work.
+After that work structure is decided, continue assigning available minor letters within `N+1` as needed.
+
+The insertion may leave existing future plans semantically misaligned with their major numbers or dependencies.
 Handle that downstream plan-number realignment in a separate follow-up pull request.
 
 ## Scope revisions
