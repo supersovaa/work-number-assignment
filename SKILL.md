@@ -1,11 +1,11 @@
 ---
 name: work-number-assignment
-description: Assign repository-defined work numbers such as T1-A to upcoming work items. Use repository-defined categories and recorded work numbers, group parallel work under the same major number, distinguish concurrent items with minor letters, and preserve an existing number when only the scope of the same work item is revised. Do not define how parallelism or work independence must be inferred.
+description: Assign repository-defined work numbers such as T1-A to upcoming implementation work. Use repository-defined categories, a per-category closed-through major, parallel-stage grouping, and the next major for replanned work while preserving prior numbering history.
 ---
 
 # Work Number Assignment
 
-Assign work numbers to upcoming work items.
+Assign work numbers to upcoming implementation work.
 
 ## Number format
 
@@ -27,23 +27,45 @@ T2-A
 
 The repository defines the available category prefixes and what each category means.
 
-Do not invent category meanings in this skill.
+Use only repository-defined category meanings.
 
-When the user asks for future work numbers in a category, such as `T`, use that repository-defined category.
+Discover category definitions and work-number records from repository instructions or documentation without assuming a fixed filename or path.
 
-Discover category definitions and the repository's work-number records from repository instructions or documentation. Do not require a fixed filename or path.
+## Closed-through major
+
+Record the highest closed major for each category in the repository's authoritative work-number records.
+
+Use the same source of truth that records work-number assignments.
+
+Example:
+
+```text
+T: closed through 3
+D: closed through 5
+```
+
+A closed-through value is monotonic.
+Every major at or below that value is closed to newly assigned work.
+
+Already assigned work numbers remain valid identifiers after their major becomes closed.
+
+As part of the planning change that sends work in major `N` into implementation, advance that category's closed-through value to at least `N`.
+
+This closes the membership of that major before later planning can add newly discovered work to it.
 
 ## Major numbers
 
 Major numbers are independent within each category.
 
-Start from `1` when no existing work number for that category is found.
+Start from `1` when the category has no existing work number.
 
-Work items that can proceed in parallel use the same major number.
+Work items that can proceed in parallel may share the same open major number.
 
 Work that belongs to a later non-parallel stage uses a later major number.
 
-This skill may rely on an inferred parallel structure, but it does not define or validate the method used to infer work independence or parallelism.
+New work receives a major above the category's closed-through value.
+
+An existing open future major may receive another work item when the surrounding workflow already determines that they belong to the same parallel stage.
 
 ## Minor numbers
 
@@ -58,51 +80,54 @@ C
 
 Assign multiple upcoming work items together when needed.
 
-Example:
+## Existing assignments
 
-```text
-T1-A
-T1-B
-T2-A
-```
+Use repository work-number records as the source for existing assignments.
 
-## Existing work numbers
+When an existing assignment is discovered before a proposed number enters actual use, align the proposal with the recorded numbering.
 
-Use the repository's defined work-number records to determine existing numbers.
+Once a number is in active use, preserve that number as history and reconcile later assignments around the recorded state.
 
-Normally continue from the existing numbering for the category.
+## Replanning
 
-If no existing number is found, start from:
+When an implementation attempt in major `N` requires replanning, preserve the old work number with its earlier plan or attempt history.
 
-```text
-<category>1-A
-```
+Use major `N+1` as the insertion point for the replanned work.
 
-If an existing number is discovered after a new number was proposed, correct the new number when it has not yet been put into actual use.
+Within `N+1`, assign the next available minor letter.
+For example, if `T4-A` already exists, assign the replanned work `T4-B`.
 
-If the proposed number is already in active use, do not silently renumber it.
+The surrounding planning workflow decides whether replanning also requires splitting or combining work.
+After that work structure is decided, continue assigning available minor letters within `N+1` as needed.
+
+The insertion may leave existing future plans semantically misaligned with their major numbers or dependencies.
+Handle that downstream plan-number realignment in a separate follow-up pull request.
 
 ## Scope revisions
 
-If the scope of the same work item is revised, keep its existing work number.
+Keep the existing work number when the same viable work item receives an ordinary scope revision.
 
-Do not issue a new work number merely because the work item's scope changed.
+Use the replanning rule when the current implementation boundary is replaced by a new plan.
 
-Whether two descriptions still represent the same work item is outside this skill's decision procedure.
+The surrounding planning context determines whether the revised plan still represents the same viable work item or a replacement.
 
-## Out of scope
+## Responsibility boundary
 
-This skill does not define or validate:
+This skill assigns and closes work numbers from an available work structure.
 
-- how work independence is determined;
-- how parallelism is inferred;
-- how work is decomposed;
-- whether two work items should be split or combined;
-- how dependencies are discovered;
-- how categories are chosen or defined.
+The surrounding workflow supplies decisions about:
 
-Those decisions may come from repository conventions, the surrounding workflow, the user, or another skill.
+- work independence;
+- parallelism;
+- decomposition;
+- splitting and combining work;
+- dependencies;
+- category definitions;
+- when a planning change sends work into implementation;
+- the plan changes that trigger replanning.
 
 ## Output
 
-Return the assigned work numbers clearly and associate each number with its corresponding work item when multiple items are numbered.
+Return assigned work numbers clearly and associate each number with its corresponding work item when multiple items are numbered.
+
+When numbering changes create downstream inconsistencies in existing plans, also identify the need for a separate plan-number realignment pull request.
