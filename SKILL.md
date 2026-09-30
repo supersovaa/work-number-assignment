@@ -1,11 +1,11 @@
 ---
 name: work-number-assignment
-description: Assign repository-defined work numbers such as T1-A to upcoming work items. Use repository-defined categories, a per-category closed-through major, parallel-stage grouping, and later numbering for replanned work while preserving prior numbering history.
+description: Assign repository-defined work numbers such as T1-A to upcoming implementation work. Use repository-defined categories, a per-category closed-through major, parallel-stage grouping, and the next major for replanned work while preserving prior numbering history.
 ---
 
 # Work Number Assignment
 
-Assign work numbers to upcoming work items.
+Assign work numbers to upcoming implementation work.
 
 ## Number format
 
@@ -27,11 +27,15 @@ T2-A
 
 The repository defines the available category prefixes and what each category means.
 
-Discover category definitions and work-number records from repository instructions or documentation.
+Use only repository-defined category meanings.
+
+Discover category definitions and work-number records from repository instructions or documentation without assuming a fixed filename or path.
 
 ## Closed-through major
 
-Record the highest closed major for each category.
+Record the highest closed major for each category in the repository's authoritative work-number records.
+
+Use the same source of truth that records work-number assignments.
 
 Example:
 
@@ -45,9 +49,9 @@ Every major at or below that value is closed to newly assigned work.
 
 Already assigned work numbers remain valid identifiers after their major becomes closed.
 
-When implementation begins for work in major `N`, advance that category's closed-through value to at least `N`.
+As part of the planning change that sends work in major `N` into implementation, advance that category's closed-through value to at least `N`.
 
-This closes the membership of that major when implementation starts, while preserving all work that was already assigned to it.
+This closes the membership of that major before later planning can add newly discovered work to it.
 
 ## Major numbers
 
@@ -86,15 +90,15 @@ Once a number is in active use, preserve that number as history and reconcile la
 
 ## Replanning
 
-When an implementation attempt requires replanning, preserve the old work number with its earlier plan or attempt history.
+When an implementation attempt in major `N` requires replanning, preserve the old work number with its earlier plan or attempt history.
 
-Assign the replanned work a later major number above the original major and above the category's closed-through value.
+Use major `N+1` as the insertion point for the replanned work.
 
 The surrounding planning workflow decides whether replanning also requires splitting or combining work.
-After that work structure is decided, apply the normal major/minor rules.
+After that work structure is decided, apply the normal minor-number and dependency rules starting from major `N+1`.
 
-A shifted work number can invalidate the ordering or numbering of already planned future work.
-Handle that broader plan-number realignment in a separate follow-up pull request so the replanning change and the downstream reorganization remain distinct.
+Existing future assignments at `N+1` or later may become misaligned after this insertion.
+Handle that downstream plan-number realignment in a separate follow-up pull request.
 
 ## Scope revisions
 
@@ -116,7 +120,7 @@ The surrounding workflow supplies decisions about:
 - splitting and combining work;
 - dependencies;
 - category definitions;
-- when implementation has begun;
+- when a planning change sends work into implementation;
 - the plan changes that trigger replanning.
 
 ## Output
