@@ -40,12 +40,14 @@ Within each category:
 - ordinary scope revisions keep the same number while the work item remains viable;
 - replanned work preserves the old number as history and starts at the next major.
 
-For example, replanning work in `T3` inserts the replacement work at `T4`.
-Work decomposition remains a planning decision.
-If another planning rule calls for splitting or combining work, numbering is applied after that structure is decided, starting from `T4`.
+For example, replanning work in `T3` uses `T4`.
+If `T4-A` already exists, the replanned work uses the next free minor such as `T4-B`.
 
-Existing future assignments at `T4` or later may then require realignment.
-That broader plan-number realignment is handled in a separate follow-up pull request.
+Work decomposition remains a planning decision.
+If another planning rule calls for splitting or combining work, numbering is applied after that structure is decided.
+
+The insertion may leave existing future plans semantically misaligned with their major numbers or dependencies.
+That downstream plan-number realignment is handled in a separate follow-up pull request.
 
 ## Deliberate non-goals
 
