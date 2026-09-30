@@ -76,6 +76,14 @@ C
 
 Assign multiple upcoming work items together when needed.
 
+## Existing assignments
+
+Use repository work-number records as the source for existing assignments.
+
+When an existing assignment is discovered before a proposed number enters actual use, align the proposal with the recorded numbering.
+
+Once a number is in active use, preserve that number as history and reconcile later assignments around the recorded state.
+
 ## Replanning
 
 When an implementation attempt requires replanning, preserve the old work number with its earlier plan or attempt history.
