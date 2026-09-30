@@ -20,31 +20,39 @@ T2-A
 
 The repository defines category prefixes such as `T`.
 
+Each category records a monotonic closed-through major, for example:
+
+```text
+T: closed through 3
+```
+
+When implementation begins for work in a major, that major becomes closed to newly assigned work.
+Already assigned work numbers in that major remain valid.
+
 Within each category:
 
 - numbering starts at major `1` when no prior numbers are found;
-- work that can proceed in parallel shares the same open major number;
-- parallel work items are distinguished with `A`, `B`, `C`, ...;
-- later non-parallel stages use later major numbers;
-- completed major numbers remain closed as history;
-- newly discovered work uses an open current major or a later major;
-- multiple future work items may be numbered together;
-- an ordinary scope revision to the same viable work item keeps the existing number;
-- implementation work that requires replanning or decomposition keeps the original number as history and starts replacement work at least one major later.
+- parallel work may share the same open major;
+- parallel items use `A`, `B`, `C`, ...;
+- later non-parallel stages use later majors;
+- new work uses a major above the closed-through value;
+- ordinary scope revisions keep the same number while the work item remains viable;
+- replanned work preserves the old number as history and receives a later major.
 
-When implementation cannot complete within the current work boundary, the skill first sends the remaining work back for decomposition consideration.
-After the replacement work structure is decided, numbering follows the usual parallel and dependency rules.
+Work decomposition remains a planning decision.
+If another planning rule calls for splitting or combining work during replanning, numbering is applied after that structure is decided.
 
-For example, a failed `T3-A` attempt may produce parallel replacement items `T4-A` and `T4-B`, followed by dependent `T5-A`.
+Renumbering replanned work can make existing future plans inconsistent.
+That broader plan-number realignment is handled in a separate follow-up pull request.
 
-The skill uses repository instructions or documentation to find category definitions, recorded work numbers, and completion state.
+The skill uses repository instructions or documentation to find category definitions, work-number records, and the closed-through values.
 It does not require a fixed file or path.
 
 ## Deliberate non-goals
 
-The surrounding workflow determines independence, parallelism, work decomposition, dependency discovery, and category definitions.
+The surrounding workflow determines independence, parallelism, decomposition, dependencies, category definitions, and the plan changes that require replanning.
 
-This skill assigns work numbers from that available work structure and preserves numbering history.
+This skill assigns work numbers, closes majors when implementation begins, and preserves numbering history.
 
 ## Name
 
