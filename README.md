@@ -1,6 +1,6 @@
 # Work Number Assignment
 
-A lightweight skill for assigning repository-defined work numbers such as `T1-A`.
+A lightweight skill for assigning repository-defined work numbers such as `T1-A` to implementation work.
 
 ## Behavior
 
@@ -19,14 +19,15 @@ T2-A
 ```
 
 The repository defines category prefixes such as `T`.
+The skill uses only repository-defined category meanings and discovers the work-number records through repository conventions without assuming a fixed file or path.
 
-Each category records a monotonic closed-through major, for example:
+Each category records a monotonic closed-through major in the same authoritative records as the work-number assignments:
 
 ```text
 T: closed through 3
 ```
 
-When implementation begins for work in a major, that major becomes closed to newly assigned work.
+As part of the planning change that sends work in a major into implementation, that major becomes closed to newly assigned work.
 Already assigned work numbers in that major remain valid.
 
 Within each category:
@@ -37,22 +38,20 @@ Within each category:
 - later non-parallel stages use later majors;
 - new work uses a major above the closed-through value;
 - ordinary scope revisions keep the same number while the work item remains viable;
-- replanned work preserves the old number as history and receives a later major.
+- replanned work preserves the old number as history and starts at the next major.
 
+For example, replanning work in `T3` inserts the replacement work at `T4`.
 Work decomposition remains a planning decision.
-If another planning rule calls for splitting or combining work during replanning, numbering is applied after that structure is decided.
+If another planning rule calls for splitting or combining work, numbering is applied after that structure is decided, starting from `T4`.
 
-Renumbering replanned work can make existing future plans inconsistent.
+Existing future assignments at `T4` or later may then require realignment.
 That broader plan-number realignment is handled in a separate follow-up pull request.
-
-The skill uses repository instructions or documentation to find category definitions, work-number records, and the closed-through values.
-It does not require a fixed file or path.
 
 ## Deliberate non-goals
 
 The surrounding workflow determines independence, parallelism, decomposition, dependencies, category definitions, and the plan changes that require replanning.
 
-This skill assigns work numbers, closes majors when implementation begins, and preserves numbering history.
+This skill assigns work numbers, records closed majors as part of implementation planning, and preserves numbering history.
 
 ## Name
 
