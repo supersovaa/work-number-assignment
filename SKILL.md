@@ -53,6 +53,7 @@ Keep assignments in an unstarted major provisional.
 
 Finalize majors strictly in ascending order within each category.
 The user start instruction applies to major `N` only when `N` is exactly one greater than that category's closed-through value.
+When the user names a later major, keep that major provisional and identify the next eligible major.
 When the user explicitly instructs implementation of that next open major to begin, first reconcile it against dependency and parallelism decisions freshly evaluated by the surrounding workflow from the latest repository state.
 Move work that depends on another item in major `N` to later open majors, applying the normal major and minor rules, until the remaining work in `N` can proceed in parallel.
 
