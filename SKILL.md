@@ -61,7 +61,7 @@ Start from `1` when the category has no existing work number.
 
 Work items that can proceed in parallel may share the same open major number.
 
-When assigning numbers to multiple newly added plans within the same category, each plan that depends on another newly added plan uses a later major number than that dependency.
+When assigning numbers to multiple plans added together within the same category, each plan that depends on another plan in that same addition uses a later major number than that dependency.
 
 Work that belongs to a later non-parallel stage uses a later major number.
 
