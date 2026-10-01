@@ -28,7 +28,7 @@ T: closed through 3
 ```
 
 Assignments in an unstarted major remain provisional.
-When the user explicitly instructs implementation of a major to begin, reconcile that major against the current dependency and parallelism decisions supplied by the surrounding workflow.
+When the user explicitly instructs implementation of a major to begin, reconcile that major against dependency and parallelism decisions freshly evaluated by the surrounding workflow from the latest repository state.
 Move work that depends on another item in the same major to later open majors, then advance the category's closed-through value to the selected major.
 Closing the major fixes its membership and puts its work numbers into active use before implementation begins.
 
