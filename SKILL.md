@@ -51,7 +51,7 @@ Already assigned work numbers remain valid identifiers after their major becomes
 
 Keep assignments in unstarted majors provisional.
 
-When the user instructs implementation of a major to begin, finalize the earliest unclosed major in that category.
+When the user instructs implementation of a major to begin, apply that instruction to the earliest unclosed major in that category and finalize it.
 Before closing it, use dependency and parallelism decisions freshly evaluated by the surrounding workflow from the latest repository state, and move same-major dependent work to later open majors under the normal numbering rules.
 Then advance the category's closed-through value to that major.
 Closing the major fixes its membership and puts its work numbers into active use before implementation begins.
