@@ -1,11 +1,11 @@
 ---
 name: work-number-assignment
-description: Assign repository-defined work numbers such as T1-A to upcoming implementation work. Use repository-defined categories, a per-category closed-through major, parallel-stage grouping, and the next major for replanned work while preserving prior numbering history.
+description: Assign repository-defined work numbers such as T1-A to upcoming implementation work, and finalize the next open major when the user explicitly starts its implementation. Use repository-defined categories, a per-category closed-through major, parallel-stage grouping, and the next major for replanned work while preserving prior numbering history.
 ---
 
 # Work Number Assignment
 
-Assign work numbers to upcoming implementation work.
+Use this skill when assigning work numbers to upcoming implementation work or when the user explicitly instructs implementation of the next open major to begin.
 
 ## Number format
 
@@ -51,10 +51,12 @@ Already assigned work numbers remain valid identifiers after their major becomes
 
 Keep assignments in an unstarted major provisional.
 
-When the user explicitly instructs implementation of major `N` to begin, first reconcile that major against dependency and parallelism decisions freshly evaluated by the surrounding workflow from the latest repository state.
+Finalize majors strictly in ascending order within each category.
+The user start instruction applies to major `N` only when `N` is exactly one greater than that category's closed-through value.
+When the user explicitly instructs implementation of that next open major to begin, first reconcile it against dependency and parallelism decisions freshly evaluated by the surrounding workflow from the latest repository state.
 Move work that depends on another item in major `N` to later open majors, applying the normal major and minor rules, until the remaining work in `N` can proceed in parallel.
 
-Then advance that category's closed-through value to at least `N`.
+Then advance that category's closed-through value from `N-1` to `N`.
 Closing the major fixes its membership and puts its assigned work numbers into active use before implementation begins.
 
 ## Major numbers
