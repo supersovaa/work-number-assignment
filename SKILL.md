@@ -1,11 +1,11 @@
 ---
 name: work-number-assignment
-description: Assign repository-defined work numbers such as T1-A to upcoming implementation work, and finalize the next open major when the user explicitly starts its implementation. Use repository-defined categories, a per-category closed-through major, parallel-stage grouping, and the next major for replanned work while preserving prior numbering history.
+description: Assign repository-defined work numbers such as T1-A to upcoming implementation work, and finalize the earliest unclosed major when the user instructs implementation to begin. Use repository-defined categories, a per-category closed-through major, parallel-stage grouping, and the next major for replanned work while preserving prior numbering history.
 ---
 
 # Work Number Assignment
 
-Use this skill when assigning work numbers to upcoming implementation work or when the user explicitly instructs implementation of the next open major to begin.
+Use this skill when assigning work numbers to upcoming implementation work or when the user instructs implementation of a major to begin.
 
 ## Number format
 
@@ -49,16 +49,12 @@ Every major at or below that value is closed to newly assigned work.
 
 Already assigned work numbers remain valid identifiers after their major becomes closed.
 
-Keep assignments in an unstarted major provisional.
+Keep assignments in unstarted majors provisional.
 
-Finalize majors strictly in ascending order within each category.
-The user start instruction applies to major `N` only when `N` is exactly one greater than that category's closed-through value.
-When the user names a later major, keep that major provisional and identify the next eligible major.
-When the user explicitly instructs implementation of that next open major to begin, first reconcile it against dependency and parallelism decisions freshly evaluated by the surrounding workflow from the latest repository state.
-Move work that depends on another item in major `N` to later open majors, applying the normal major and minor rules, until the remaining work in `N` can proceed in parallel.
-
-Then advance that category's closed-through value from `N-1` to `N`.
-Closing the major fixes its membership and puts its assigned work numbers into active use before implementation begins.
+When the user instructs implementation of a major to begin, finalize the earliest unclosed major in that category.
+Before closing it, use dependency and parallelism decisions freshly evaluated by the surrounding workflow from the latest repository state, and move same-major dependent work to later open majors under the normal numbering rules.
+Then advance the category's closed-through value to that major.
+Closing the major fixes its membership and puts its work numbers into active use before implementation begins.
 
 ## Major numbers
 
@@ -95,8 +91,8 @@ Use repository work-number records as the source for existing assignments.
 
 When an existing assignment is discovered before its major is closed, align the proposal with the recorded numbering.
 
-Assignments in open majors may be realigned until the user-triggered finalization step closes their major.
-Once a major is closed for implementation, preserve its work numbers as history and reconcile later assignments around the recorded state.
+Assignments in open majors may be realigned until their major closes.
+Once a major closes for implementation, preserve its work numbers as history and reconcile later assignments around the recorded state.
 
 ## Replanning
 
