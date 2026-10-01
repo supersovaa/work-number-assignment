@@ -30,6 +30,7 @@ T: closed through 3
 Assignments in an unstarted major remain provisional.
 Majors finalize strictly in ascending order within each category.
 A user implementation-start instruction finalizes only the major exactly one greater than the category's closed-through value.
+A later requested major stays provisional while the next eligible major is identified.
 Before closing that next open major, reconcile it against dependency and parallelism decisions freshly evaluated by the surrounding workflow from the latest repository state.
 Move work that depends on another item in the same major to later open majors, then advance the category's closed-through value by exactly one.
 Closing the major fixes its membership and puts its work numbers into active use before implementation begins.
