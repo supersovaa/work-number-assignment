@@ -1,6 +1,6 @@
 # Work Number Assignment
 
-A lightweight skill for assigning repository-defined work numbers such as `T1-A` to implementation work.
+A lightweight skill for assigning repository-defined work numbers such as `T1-A` and finalizing the next open major when the user starts its implementation.
 
 ## Behavior
 
@@ -28,8 +28,10 @@ T: closed through 3
 ```
 
 Assignments in an unstarted major remain provisional.
-When the user explicitly instructs implementation of a major to begin, reconcile that major against dependency and parallelism decisions freshly evaluated by the surrounding workflow from the latest repository state.
-Move work that depends on another item in the same major to later open majors, then advance the category's closed-through value to the selected major.
+Majors finalize strictly in ascending order within each category.
+A user implementation-start instruction finalizes only the major exactly one greater than the category's closed-through value.
+Before closing that next open major, reconcile it against dependency and parallelism decisions freshly evaluated by the surrounding workflow from the latest repository state.
+Move work that depends on another item in the same major to later open majors, then advance the category's closed-through value by exactly one.
 Closing the major fixes its membership and puts its work numbers into active use before implementation begins.
 
 Within each category:
