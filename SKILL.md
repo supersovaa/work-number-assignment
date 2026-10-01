@@ -61,6 +61,8 @@ Start from `1` when the category has no existing work number.
 
 Work items that can proceed in parallel may share the same open major number.
 
+When assigning numbers to multiple plans added together within the same category, each plan that depends on another plan in that same addition uses a later major number than that dependency.
+
 Work that belongs to a later non-parallel stage uses a later major number.
 
 New work receives a major above the category's closed-through value.
@@ -92,13 +94,13 @@ Once a number is in active use, preserve that number as history and reconcile la
 
 When an implementation attempt in major `N` requires replanning, preserve the old work number with its earlier plan or attempt history.
 
-Use major `N+1` as the insertion point for the replanned work.
+Begin numbering replanned work at major `N+1`.
 
-Within `N+1`, assign the next available minor letter.
+For replanned work placed in `N+1`, assign the next available minor letter.
 For example, if `T4-A` already exists, assign the replanned work `T4-B`.
 
 The surrounding planning workflow decides whether replanning also requires splitting or combining work.
-After that work structure is decided, continue assigning available minor letters within `N+1` as needed.
+After that work structure is decided, apply the major-number and minor-number rules starting from `N+1`.
 
 The insertion may leave existing future plans semantically misaligned with their major numbers or dependencies.
 Handle that downstream plan-number realignment in a separate follow-up pull request.
