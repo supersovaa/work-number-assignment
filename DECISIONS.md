@@ -28,7 +28,7 @@
 ## Major finalization
 
 - Assignments in unstarted majors remain provisional.
-- A user instruction to start implementation finalizes the earliest unclosed major in that category.
+- A user instruction to start implementation applies to the earliest unclosed major in that category and finalizes it.
 - Before closing it, use freshly evaluated dependency and parallelism decisions from the surrounding workflow and move same-major dependent work to later open majors.
 - Closing the major advances the category's closed-through value and puts its work numbers into active use.
 
