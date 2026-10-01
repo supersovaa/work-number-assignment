@@ -28,7 +28,7 @@ T: closed through 3
 ```
 
 Assignments in unstarted majors remain provisional.
-When the user instructs implementation to begin, finalize the earliest unclosed major in that category.
+When the user instructs implementation to begin, apply that instruction to the earliest unclosed major in that category and finalize it.
 Before closing it, use freshly evaluated dependency and parallelism decisions from the surrounding workflow and move same-major dependent work to later open majors.
 Then advance the category's closed-through value to that major.
 Closing the major fixes its membership and puts its work numbers into active use before implementation begins.
