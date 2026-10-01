@@ -94,13 +94,13 @@ Once a number is in active use, preserve that number as history and reconcile la
 
 When an implementation attempt in major `N` requires replanning, preserve the old work number with its earlier plan or attempt history.
 
-Use major `N+1` as the insertion point for the replanned work.
+Begin numbering replanned work at major `N+1`.
 
-Within `N+1`, assign the next available minor letter.
+For replanned work placed in `N+1`, assign the next available minor letter.
 For example, if `T4-A` already exists, assign the replanned work `T4-B`.
 
 The surrounding planning workflow decides whether replanning also requires splitting or combining work.
-After that work structure is decided, continue assigning available minor letters within `N+1` as needed.
+After that work structure is decided, apply the major-number and minor-number rules starting from `N+1`.
 
 The insertion may leave existing future plans semantically misaligned with their major numbers or dependencies.
 Handle that downstream plan-number realignment in a separate follow-up pull request.
