@@ -27,8 +27,10 @@ Each category records a monotonic closed-through major in the same authoritative
 T: closed through 3
 ```
 
-As part of the planning change that sends work in a major into implementation, that major becomes closed to newly assigned work.
-Already assigned work numbers in that major remain valid.
+Assignments in an unstarted major remain provisional.
+When the user explicitly instructs implementation of a major to begin, reconcile that major against the current dependency and parallelism decisions supplied by the surrounding workflow.
+Move work that depends on another item in the same major to later open majors, then advance the category's closed-through value to the selected major.
+Closing the major fixes its membership and puts its work numbers into active use before implementation begins.
 
 Within each category:
 
@@ -54,7 +56,7 @@ That downstream plan-number realignment is handled in a separate follow-up pull 
 
 The surrounding workflow determines independence, parallelism, decomposition, dependencies, category definitions, and the plan changes that require replanning.
 
-This skill assigns work numbers, records closed majors as part of implementation planning, and preserves numbering history.
+This skill assigns work numbers, finalizes a major on the user's implementation-start signal, records closed majors, and preserves numbering history.
 
 ## Name
 
