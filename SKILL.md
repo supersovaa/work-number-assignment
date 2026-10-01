@@ -51,7 +51,7 @@ Already assigned work numbers remain valid identifiers after their major becomes
 
 Keep assignments in an unstarted major provisional.
 
-When the user explicitly instructs implementation of major `N` to begin, first reconcile that major against the current dependency and parallelism decisions supplied by the surrounding workflow.
+When the user explicitly instructs implementation of major `N` to begin, first reconcile that major against dependency and parallelism decisions freshly evaluated by the surrounding workflow from the latest repository state.
 Move work that depends on another item in major `N` to later open majors, applying the normal major and minor rules, until the remaining work in `N` can proceed in parallel.
 
 Then advance that category's closed-through value to at least `N`.
