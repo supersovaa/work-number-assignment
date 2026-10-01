@@ -12,7 +12,7 @@
 
 - Parallel work uses the same major number.
 - Parallel siblings use different minor letters.
-- When multiple newly added plans have dependencies among them, each dependent plan uses a later major number than the newly added plans it depends on.
+- Within the same category, when multiple newly added plans have dependencies among them, each dependent plan uses a later major number than the newly added plans it depends on.
 - Multiple future work items can be numbered in one pass.
 - If no existing number for a category is found, start at `<category>1-A`.
 - Existing numbers are discovered from repository-defined instructions or documentation rather than a fixed path.
