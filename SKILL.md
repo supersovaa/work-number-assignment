@@ -49,9 +49,13 @@ Every major at or below that value is closed to newly assigned work.
 
 Already assigned work numbers remain valid identifiers after their major becomes closed.
 
-As part of the planning change that sends work in major `N` into implementation, advance that category's closed-through value to at least `N`.
+Keep assignments in an unstarted major provisional.
 
-This closes the membership of that major before later planning can add newly discovered work to it.
+When the user explicitly instructs implementation of major `N` to begin, first reconcile that major against the current dependency and parallelism decisions supplied by the surrounding workflow.
+Move work that depends on another item in major `N` to later open majors, applying the normal major and minor rules, until the remaining work in `N` can proceed in parallel.
+
+Then advance that category's closed-through value to at least `N`.
+Closing the major fixes its membership and puts its assigned work numbers into active use before implementation begins.
 
 ## Major numbers
 
@@ -86,9 +90,10 @@ Assign multiple upcoming work items together when needed.
 
 Use repository work-number records as the source for existing assignments.
 
-When an existing assignment is discovered before a proposed number enters actual use, align the proposal with the recorded numbering.
+When an existing assignment is discovered before its major is closed, align the proposal with the recorded numbering.
 
-Once a number is in active use, preserve that number as history and reconcile later assignments around the recorded state.
+Assignments in open majors may be realigned until the user-triggered finalization step closes their major.
+Once a major is closed for implementation, preserve its work numbers as history and reconcile later assignments around the recorded state.
 
 ## Replanning
 
@@ -125,7 +130,7 @@ The surrounding workflow supplies decisions about:
 - splitting and combining work;
 - dependencies;
 - category definitions;
-- when a planning change sends work into implementation;
+- the user's instruction to start implementation of a major;
 - the plan changes that trigger replanning.
 
 ## Output
