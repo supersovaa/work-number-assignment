@@ -29,7 +29,7 @@
 
 - Assignments in an unstarted major remain provisional.
 - The user explicitly instructing implementation of a major to begin triggers finalization of that major.
-- Before closing that major, reconcile its assignments against the current dependency and parallelism decisions supplied by the surrounding workflow.
+- Before closing that major, reconcile its assignments against dependency and parallelism decisions freshly evaluated by the surrounding workflow from the latest repository state.
 - Work that depends on another item in the same major moves to a later open major under the normal numbering rules.
 - After reconciliation, advance the category's closed-through value to that major.
 - Closing the major is the point at which its work numbers enter active use.
