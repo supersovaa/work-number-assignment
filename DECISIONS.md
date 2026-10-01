@@ -27,14 +27,10 @@
 
 ## Major finalization
 
-- Assignments in an unstarted major remain provisional.
-- Finalize majors strictly in ascending order within each category.
-- A user implementation-start instruction triggers finalization only for the major exactly one greater than the category's closed-through value.
-- When the user names a later major, keep it provisional and identify the next eligible major.
-- Before closing that major, reconcile its assignments against dependency and parallelism decisions freshly evaluated by the surrounding workflow from the latest repository state.
-- Work that depends on another item in the same major moves to a later open major under the normal numbering rules.
-- After reconciliation, advance the category's closed-through value by exactly one to that major.
-- Closing the major is the point at which its work numbers enter active use.
+- Assignments in unstarted majors remain provisional.
+- A user instruction to start implementation finalizes the earliest unclosed major in that category.
+- Before closing it, use freshly evaluated dependency and parallelism decisions from the surrounding workflow and move same-major dependent work to later open majors.
+- Closing the major advances the category's closed-through value and puts its work numbers into active use.
 
 ## Late discovery
 
