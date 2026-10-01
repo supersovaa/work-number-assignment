@@ -25,7 +25,14 @@
 - Revising the scope of the same work item does not issue a new number.
 - Determining whether something is still the same work item is not defined by this skill.
 
+## Major finalization
+
+- Assignments in unstarted majors remain provisional.
+- A user instruction to start implementation applies to the earliest unclosed major in that category and finalizes it.
+- Before closing it, use freshly evaluated dependency and parallelism decisions from the surrounding workflow and move same-major dependent work to later open majors.
+- Closing the major advances the category's closed-through value and puts its work numbers into active use.
+
 ## Late discovery
 
-- If an existing number is discovered after a new number was proposed, correct the new number when it has not yet been put into actual use.
-- Once a number is already in active use, do not silently change it.
+- If an existing number is discovered while its major is still open, correct the proposed assignment.
+- Once a major is closed for implementation, preserve its assigned numbers as history.

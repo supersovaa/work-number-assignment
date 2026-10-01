@@ -1,6 +1,6 @@
 # Work Number Assignment
 
-A lightweight skill for assigning repository-defined work numbers such as `T1-A` to implementation work.
+A lightweight skill for assigning repository-defined work numbers such as `T1-A` and finalizing the earliest unclosed major when the user starts implementation.
 
 ## Behavior
 
@@ -27,8 +27,11 @@ Each category records a monotonic closed-through major in the same authoritative
 T: closed through 3
 ```
 
-As part of the planning change that sends work in a major into implementation, that major becomes closed to newly assigned work.
-Already assigned work numbers in that major remain valid.
+Assignments in unstarted majors remain provisional.
+When the user instructs implementation to begin, apply that instruction to the earliest unclosed major in that category and finalize it.
+Before closing it, use freshly evaluated dependency and parallelism decisions from the surrounding workflow and move same-major dependent work to later open majors.
+Then advance the category's closed-through value to that major.
+Closing the major fixes its membership and puts its work numbers into active use before implementation begins.
 
 Within each category:
 
@@ -54,7 +57,7 @@ That downstream plan-number realignment is handled in a separate follow-up pull 
 
 The surrounding workflow determines independence, parallelism, decomposition, dependencies, category definitions, and the plan changes that require replanning.
 
-This skill assigns work numbers, records closed majors as part of implementation planning, and preserves numbering history.
+This skill assigns work numbers, finalizes a major on the user's implementation-start signal, records closed majors, and preserves numbering history.
 
 ## Name
 
