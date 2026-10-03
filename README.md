@@ -60,7 +60,7 @@ That downstream plan-number realignment is handled in a separate follow-up pull 
 
 The surrounding workflow determines independence, parallelism, decomposition, dependencies, category definitions, and the plan changes that require replanning.
 
-This skill assigns work numbers, finalizes a major on the user's implementation-start signal, records closed majors, and preserves numbering history.
+This skill assigns work numbers, finalizes a major on the user's implementation-start signal, records closed majors, and preserves finalized numbering history.
 
 ## Name
 
