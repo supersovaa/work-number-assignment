@@ -28,9 +28,12 @@ T: closed through 3
 ```
 
 Assignments in unstarted majors remain provisional.
-When the user instructs implementation to begin, apply that instruction to the earliest unclosed major in that category and finalize it.
-Before closing it, use freshly evaluated dependency and parallelism decisions from the surrounding workflow and move same-major dependent work to later open majors.
-Then advance the category's closed-through value to that major.
+Provisional assignments may contain gaps in major numbers or minor letters while work is being split, combined, removed, or realigned.
+Superseded provisional structures and numbering are working state rather than numbering history, so the authoritative records are updated to the current provisional state instead of retaining the superseded state.
+
+When the user instructs implementation to begin, first normalize that category's provisional assignments above the closed-through value from the latest work structure.
+Remove avoidable gaps in major numbers, assign minor letters contiguously within each affected major, and use freshly evaluated dependency and parallelism decisions from the surrounding workflow to place dependent work in later open majors.
+Then finalize the earliest resulting open major and advance the category's closed-through value to that major.
 Closing the major fixes its membership and puts its work numbers into active use before implementation begins.
 
 Within each category:
