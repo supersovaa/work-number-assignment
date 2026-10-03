@@ -28,8 +28,11 @@
 ## Major finalization
 
 - Assignments in unstarted majors remain provisional.
-- A user instruction to start implementation applies to the earliest unclosed major in that category and finalizes it.
-- Before closing it, use freshly evaluated dependency and parallelism decisions from the surrounding workflow and move same-major dependent work to later open majors.
+- Provisional assignments may contain gaps in major numbers or minor letters while work is being split, combined, removed, or realigned.
+- Superseded provisional structures and numbering are working state rather than numbering history and are replaced in the authoritative records.
+- When the user instructs implementation to begin, first normalize that category's provisional assignments above the closed-through value from the latest work structure.
+- Normalization removes avoidable major-number gaps, makes minor letters contiguous within each affected major, and applies freshly evaluated dependency and parallelism decisions from the surrounding workflow.
+- The implementation-start instruction then applies to the earliest resulting open major and finalizes it.
 - Closing the major advances the category's closed-through value and puts its work numbers into active use.
 
 ## Late discovery
