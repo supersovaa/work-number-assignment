@@ -1,6 +1,6 @@
 ---
 name: work-number-assignment
-description: Assign repository-defined work numbers such as T1-A to upcoming implementation work, and finalize the earliest unclosed major when the user instructs implementation to begin. Use repository-defined categories, a per-category closed-through major, parallel-stage grouping, and the next major for replanned work while preserving prior numbering history.
+description: Assign repository-defined work numbers such as T1-A to upcoming implementation work, and finalize the earliest unclosed major when the user instructs implementation to begin. Use repository-defined categories, a per-category closed-through major, parallel-stage grouping, and the next major for replanned work while preserving finalized numbering history.
 ---
 
 # Work Number Assignment
