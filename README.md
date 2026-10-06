@@ -40,7 +40,7 @@ A major satisfies this predecessor-completion condition when no implementation r
 This is not the same as requiring every fixed work item to complete implementation successfully.
 Implementation may be exhausted because it succeeded, because a failed attempt was replanned and remaining implementation moved to replacement work, or because the fixed work item was explicitly canceled or superseded before implementation began.
 If underlying work is still required, its replacement work structure must already be established.
-Canceled or superseded work numbers and fixed-major membership remain historical records, and disappearance from the active plan alone is not enough to show that no implementation remains.
+Disappearance from the active plan alone is not enough to show that no implementation remains.
 Replacement work may already have provisional work numbers in open majors before those majors are finalized.
 The closed-through value does not itself mean work completion.
 
