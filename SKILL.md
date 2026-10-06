@@ -1,6 +1,6 @@
 ---
 name: work-number-assignment
-description: Assign repository-defined work numbers such as T1-A to upcoming implementation work, and finalize the earliest unclosed major when the user instructs implementation to begin. Use repository-defined categories, a per-category closed-through major, parallel-stage grouping, and the next major for replanned work while preserving finalized numbering history.
+description: Assign repository-defined work numbers such as T1-A to upcoming implementation work, and finalize the earliest eligible unclosed major when the user instructs implementation to begin. Use repository-defined categories, a per-category closed-through major, predecessor-completion gating, parallel-stage grouping, and the next major for replanned work while preserving finalized numbering history.
 ---
 
 # Work Number Assignment
@@ -54,7 +54,14 @@ Provisional assignments may contain gaps in major numbers or minor letters while
 
 When the user instructs implementation of a major to begin, first normalize that category's provisional assignments above the closed-through value from the latest work structure.
 Remove avoidable gaps in major numbers, assign minor letters contiguously within each affected major, and use dependency and parallelism decisions freshly evaluated by the surrounding workflow from the latest repository state to move dependent work to later open majors under the normal numbering rules.
-Then apply the implementation-start instruction to the earliest resulting open major and finalize it.
+
+The earliest resulting open major is eligible for finalization only when the preceding major in the same category is complete.
+Major `1` has no preceding-major prerequisite.
+Treat a major as complete for this predecessor condition only when every work item fixed in that major has either completed implementation successfully or, after a failed implementation attempt, completed the replanning needed to establish its replacement work structure.
+Replacement work may already have provisional work numbers in open majors while that replanning is being completed.
+Do not infer this completion from the closed-through value; closed-through records numbering finalization, not work completion.
+
+Then apply the implementation-start instruction to the earliest resulting eligible open major and finalize it.
 Advance the category's closed-through value to that major.
 Closing the major fixes its membership and puts its work numbers into active use before implementation begins.
 
@@ -133,6 +140,8 @@ The surrounding workflow supplies decisions about:
 - splitting and combining work;
 - dependencies;
 - category definitions;
+- implementation outcomes;
+- whether failed work has completed replanning and established its replacement work structure;
 - the user's instruction to start implementation of a major;
 - the plan changes that trigger replanning.
 

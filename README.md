@@ -1,6 +1,6 @@
 # Work Number Assignment
 
-A lightweight skill for assigning repository-defined work numbers such as `T1-A` and finalizing the earliest unclosed major when the user starts implementation.
+A lightweight skill for assigning repository-defined work numbers such as `T1-A` and finalizing the earliest eligible unclosed major when the user starts implementation.
 
 ## Behavior
 
@@ -33,7 +33,14 @@ Superseded provisional structures and numbering are working state rather than nu
 
 When the user instructs implementation to begin, first normalize that category's provisional assignments above the closed-through value from the latest work structure.
 Remove avoidable gaps in major numbers, assign minor letters contiguously within each affected major, and use freshly evaluated dependency and parallelism decisions from the surrounding workflow to place dependent work in later open majors.
-Then finalize the earliest resulting open major and advance the category's closed-through value to that major.
+
+The next open major can be finalized only after the preceding major in the same category is complete.
+Major `1` has no preceding-major prerequisite.
+A major satisfies this predecessor-completion condition only when every work item fixed in that major has either completed implementation successfully or, after a failed implementation attempt, completed the replanning needed to establish its replacement work structure.
+Replacement work may already have provisional work numbers in open majors before those majors are finalized.
+The closed-through value does not itself mean work completion.
+
+Then finalize the earliest resulting eligible open major and advance the category's closed-through value to that major.
 Closing the major fixes its membership and puts its work numbers into active use before implementation begins.
 
 Within each category:
@@ -58,7 +65,7 @@ That downstream plan-number realignment is handled in a separate follow-up pull 
 
 ## Deliberate non-goals
 
-The surrounding workflow determines independence, parallelism, decomposition, dependencies, category definitions, and the plan changes that require replanning.
+The surrounding workflow determines independence, parallelism, decomposition, dependencies, category definitions, implementation outcomes, whether failed work has completed replanning and established its replacement work structure, and the plan changes that require replanning.
 
 This skill assigns work numbers, finalizes a major on the user's implementation-start signal, records closed majors, and preserves finalized numbering history.
 
