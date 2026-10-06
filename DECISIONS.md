@@ -33,7 +33,7 @@
 - Superseded provisional structures and numbering are working state rather than numbering history and are replaced in the authoritative records.
 - When the user instructs implementation to begin, first normalize that category's provisional assignments above the closed-through value from the latest work structure.
 - Normalization removes avoidable major-number gaps, makes minor letters contiguous within each affected major, and applies freshly evaluated dependency and parallelism decisions from the surrounding workflow.
-- The earliest resulting open major is eligible for finalization only after the preceding major in the same category is implementation-complete.
+- The earliest resulting open major is eligible for finalization only after the preceding major in the same category is complete.
 - Major `1` has no preceding-major prerequisite.
 - A major satisfies the predecessor-completion condition only when every work item fixed in that major has either completed implementation successfully or, after a failed implementation attempt, completed the replanning needed to establish its replacement plan.
 - Replacement work may already have a provisional number in the next open major while replanning is being completed.
