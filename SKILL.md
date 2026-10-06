@@ -5,7 +5,7 @@ description: Assign repository-defined work numbers such as T1-A to upcoming imp
 
 # Work Number Assignment
 
-Use this skill when assigning work numbers to upcoming implementation work or when the user instructs implementation of a major to begin.
+Use this skill when assigning work numbers to upcoming implementation work, when the user instructs implementation of a major to begin, or when the user withdraws or revises that pending implementation before it actually starts.
 
 ## Number format
 
@@ -60,7 +60,7 @@ Remove avoidable gaps in major numbers, assign minor letters contiguously within
 
 The earliest resulting open major is eligible for finalization only when the preceding major in the same category is complete.
 Major `1` has no preceding-major prerequisite.
-Treat a major as complete for this predecessor condition only when every work item whose numbering became irreversible in that major has either completed implementation successfully or, after a failed implementation attempt, completed the replanning needed to establish its replacement work structure.
+Treat a major as complete for this predecessor condition only when every work item in that major has either completed implementation successfully or, after a failed implementation attempt, completed the replanning needed to establish its replacement work structure.
 Replacement work may already have provisional work numbers in open majors while that replanning is being completed.
 Do not infer this completion from the closed-through value; closed-through records current numbering finalization, not work completion.
 
@@ -148,7 +148,7 @@ The surrounding planning context determines whether the revised plan still repre
 
 ## Responsibility boundary
 
-This skill assigns, finalizes, reopens when permitted, and closes work numbers from an available work structure.
+This skill assigns work numbers, finalizes or reopens majors when permitted, and preserves numbering history once implementation begins.
 
 The surrounding workflow supplies decisions about:
 
