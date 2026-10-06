@@ -36,8 +36,8 @@ Remove avoidable gaps in major numbers, assign minor letters contiguously within
 
 The next open major can be finalized only after the preceding major in the same category is complete.
 Major `1` has no preceding-major prerequisite.
-A major satisfies this predecessor-completion condition only when every work item fixed in that major has either completed implementation successfully or, after a failed implementation attempt, completed the replanning needed to establish its replacement plan.
-The replacement plan may already have a provisional work number in the next open major before that major is finalized.
+A major satisfies this predecessor-completion condition only when every work item fixed in that major has either completed implementation successfully or, after a failed implementation attempt, completed the replanning needed to establish its replacement work structure.
+Replacement work may already have provisional work numbers in open majors before those majors are finalized.
 The closed-through value does not itself mean work completion.
 
 Then finalize the earliest resulting eligible open major and advance the category's closed-through value to that major.
@@ -65,7 +65,7 @@ That downstream plan-number realignment is handled in a separate follow-up pull 
 
 ## Deliberate non-goals
 
-The surrounding workflow determines independence, parallelism, decomposition, dependencies, category definitions, implementation outcomes, whether failed work has completed replanning and established its replacement plan, and the plan changes that require replanning.
+The surrounding workflow determines independence, parallelism, decomposition, dependencies, category definitions, implementation outcomes, whether failed work has completed replanning and established its replacement work structure, and the plan changes that require replanning.
 
 This skill assigns work numbers, finalizes a major on the user's implementation-start signal, records closed majors, and preserves finalized numbering history.
 
