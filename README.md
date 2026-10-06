@@ -36,9 +36,9 @@ Remove avoidable gaps in major numbers, assign minor letters contiguously within
 
 The next open major can be finalized only after the preceding major in the same category is implementation-complete.
 Major `1` has no preceding-major prerequisite.
-A major is implementation-complete only when every work item fixed in that major has completed.
-A work item satisfies this condition when its implementation succeeds, or, after a failure that requires replacement work, when the replacement plan or final plan in the replacement chain completes successfully.
-The closed-through value does not itself mean implementation completion.
+A major satisfies this predecessor-completion condition only when every work item fixed in that major has either completed implementation successfully or, after a failed implementation attempt, completed the replanning needed to establish its replacement plan.
+The replacement plan may already have a provisional work number in the next open major before that major is finalized.
+The closed-through value does not itself mean work completion.
 
 Then finalize the earliest resulting eligible open major and advance the category's closed-through value to that major.
 Closing the major fixes its membership and puts its work numbers into active use before implementation begins.
@@ -65,7 +65,7 @@ That downstream plan-number realignment is handled in a separate follow-up pull 
 
 ## Deliberate non-goals
 
-The surrounding workflow determines independence, parallelism, decomposition, dependencies, category definitions, implementation outcomes and work-item completion state, replacement-plan lineage, and the plan changes that require replanning.
+The surrounding workflow determines independence, parallelism, decomposition, dependencies, category definitions, implementation outcomes, whether failed work has completed replanning and established its replacement plan, and the plan changes that require replanning.
 
 This skill assigns work numbers, finalizes a major on the user's implementation-start signal, records closed majors, and preserves finalized numbering history.
 
