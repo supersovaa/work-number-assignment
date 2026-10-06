@@ -55,7 +55,7 @@ Provisional assignments may contain gaps in major numbers or minor letters while
 When the user instructs implementation of a major to begin, first normalize that category's provisional assignments above the closed-through value from the latest work structure.
 Remove avoidable gaps in major numbers, assign minor letters contiguously within each affected major, and use dependency and parallelism decisions freshly evaluated by the surrounding workflow from the latest repository state to move dependent work to later open majors under the normal numbering rules.
 
-The earliest resulting open major is eligible for finalization only when the preceding major in the same category is implementation-complete.
+The earliest resulting open major is eligible for finalization only when the preceding major in the same category is complete.
 Major `1` has no preceding-major prerequisite.
 Treat a major as complete for this predecessor condition only when every work item fixed in that major has either completed implementation successfully or, after a failed implementation attempt, completed the replanning needed to establish its replacement plan.
 A replacement plan may already have a provisional work number in the next open major while that replanning is being completed.
