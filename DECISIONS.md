@@ -22,6 +22,7 @@
 - The skill may use an inferred parallel structure.
 - The method for inferring independence or parallelism is out of scope.
 - Work decomposition, dependency discovery, and category definition are out of scope.
+- Implementation outcomes, work-item completion state, and replacement-plan lineage are supplied by the surrounding workflow.
 - Revising the scope of the same work item does not issue a new number.
 - Determining whether something is still the same work item is not defined by this skill.
 
