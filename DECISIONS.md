@@ -22,7 +22,7 @@
 - The skill may use an inferred parallel structure.
 - The method for inferring independence or parallelism is out of scope.
 - Work decomposition, dependency discovery, and category definition are out of scope.
-- Implementation outcomes, work-item completion state, and replacement-plan lineage are supplied by the surrounding workflow.
+- Implementation outcomes and whether failed work has completed replanning and established its replacement plan are supplied by the surrounding workflow.
 - Revising the scope of the same work item does not issue a new number.
 - Determining whether something is still the same work item is not defined by this skill.
 
@@ -35,10 +35,9 @@
 - Normalization removes avoidable major-number gaps, makes minor letters contiguous within each affected major, and applies freshly evaluated dependency and parallelism decisions from the surrounding workflow.
 - The earliest resulting open major is eligible for finalization only after the preceding major in the same category is implementation-complete.
 - Major `1` has no preceding-major prerequisite.
-- A major is implementation-complete only when every work item fixed in that major has completed.
-- A work item completes when its implementation succeeds.
-- If a work item fails and requires replacement work, it completes only when the replacement plan, or the final plan in a replacement chain, completes successfully.
-- The closed-through value records numbering finalization and does not itself establish implementation completion.
+- A major satisfies the predecessor-completion condition only when every work item fixed in that major has either completed implementation successfully or, after a failed implementation attempt, completed the replanning needed to establish its replacement plan.
+- Replacement work may already have a provisional number in the next open major while replanning is being completed.
+- The closed-through value records numbering finalization and does not itself establish work completion.
 - The implementation-start instruction then applies to the earliest resulting eligible open major and finalizes it.
 - Closing the major advances the category's closed-through value and puts its work numbers into active use.
 
