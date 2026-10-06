@@ -1,6 +1,6 @@
 ---
 name: work-number-assignment
-description: Assign repository-defined work numbers such as T1-A to upcoming implementation work, and finalize the earliest eligible unclosed major when the user instructs implementation to begin. Use repository-defined categories, a per-category closed-through major, predecessor-completion gating, parallel-stage grouping, and the next major for replanned work while preserving finalized numbering history.
+description: Assign repository-defined work numbers such as T1-A to upcoming implementation work, finalize the earliest eligible open major when the user instructs implementation to begin, and allow that finalization to be reopened until implementation actually starts. Use repository-defined categories, a per-category closed-through major, predecessor-completion gating, parallel-stage grouping, and the next major for replanned work while preserving numbering history once implementation has begun.
 ---
 
 # Work Number Assignment
@@ -33,7 +33,7 @@ Discover category definitions and work-number records from repository instructio
 
 ## Closed-through major
 
-Record the highest closed major for each category in the repository's authoritative work-number records.
+Record the highest currently finalized major for each category in the repository's authoritative work-number records.
 
 Use the same source of truth that records work-number assignments.
 
@@ -44,12 +44,15 @@ T: closed through 3
 D: closed through 5
 ```
 
-A closed-through value is monotonic.
-Every major at or below that value is closed to newly assigned work.
+Every major at or below that value is closed to newly assigned work while it remains finalized.
+
+The closed-through value may advance when a major is finalized.
+It may roll back only when reopening the latest finalized major before implementation has actually started in that major.
+Never roll it back below a major whose implementation has actually started.
 
 Already assigned work numbers remain valid identifiers after their major becomes closed.
 
-Keep assignments in unstarted majors provisional.
+Keep assignments in unstarted open majors provisional.
 Provisional assignments may contain gaps in major numbers or minor letters while work is being split, combined, removed, or realigned.
 
 When the user instructs implementation of a major to begin, first normalize that category's provisional assignments above the closed-through value from the latest work structure.
@@ -57,13 +60,28 @@ Remove avoidable gaps in major numbers, assign minor letters contiguously within
 
 The earliest resulting open major is eligible for finalization only when the preceding major in the same category is complete.
 Major `1` has no preceding-major prerequisite.
-Treat a major as complete for this predecessor condition only when every work item fixed in that major has either completed implementation successfully or, after a failed implementation attempt, completed the replanning needed to establish its replacement work structure.
+Treat a major as complete for this predecessor condition only when every work item whose numbering became irreversible in that major has either completed implementation successfully or, after a failed implementation attempt, completed the replanning needed to establish its replacement work structure.
 Replacement work may already have provisional work numbers in open majors while that replanning is being completed.
-Do not infer this completion from the closed-through value; closed-through records numbering finalization, not work completion.
+Do not infer this completion from the closed-through value; closed-through records current numbering finalization, not work completion.
 
 Then apply the implementation-start instruction to the earliest resulting eligible open major and finalize it.
 Advance the category's closed-through value to that major.
-Closing the major fixes its membership and puts its work numbers into active use before implementation begins.
+Finalization fixes the major's membership for the pending implementation start, but remains reversible until implementation actually begins.
+
+## Reopening before implementation starts
+
+If implementation has not actually begun for any work item in the latest finalized major, the user may withdraw or revise the pending implementation and reopen that major.
+
+When reopening:
+
+- restore the category's closed-through value to its previous value, or remove it when reopening major `1` and no earlier major is closed;
+- return the reopened major's assignments to provisional state;
+- apply the normal provisional realignment and normalization rules to later work as needed.
+
+Do not treat the earlier instruction to begin implementation as proof that implementation actually started.
+
+Once implementation actually begins for any work item in a finalized major, preserve that major's membership and work numbers as irreversible history.
+Do not reopen or renumber that major afterward.
 
 ## Major numbers
 
@@ -98,12 +116,12 @@ Assign multiple upcoming work items together when needed.
 
 Use repository work-number records as the source for existing assignments.
 
-When an existing assignment is discovered before its major is closed, align the proposal with the recorded numbering.
+When an existing assignment is discovered before its major becomes irreversible through actual implementation, align the proposal with the recorded numbering.
 
-Assignments in open majors may be realigned until their major closes.
+Assignments in open majors and reopened unstarted majors may be realigned.
 Superseded provisional splits, combinations, removals, and numbering are working state rather than work-number history, so update the authoritative records to the current provisional structure instead of preserving the superseded state.
 Gaps in provisional major numbers or minor letters are allowed until finalization.
-Once a major closes for implementation, preserve its work numbers as history and reconcile later assignments around the recorded state.
+Once implementation actually starts in a finalized major, preserve its work numbers as history and reconcile later assignments around the recorded state.
 
 ## Replanning
 
@@ -130,7 +148,7 @@ The surrounding planning context determines whether the revised plan still repre
 
 ## Responsibility boundary
 
-This skill assigns and closes work numbers from an available work structure.
+This skill assigns, finalizes, reopens when permitted, and closes work numbers from an available work structure.
 
 The surrounding workflow supplies decisions about:
 
@@ -141,8 +159,9 @@ The surrounding workflow supplies decisions about:
 - dependencies;
 - category definitions;
 - implementation outcomes;
+- whether implementation has actually started;
 - whether failed work has completed replanning and established its replacement work structure;
-- the user's instruction to start implementation of a major;
+- the user's instruction to start, withdraw, or revise implementation of a major;
 - the plan changes that trigger replanning.
 
 ## Output
