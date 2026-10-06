@@ -57,8 +57,8 @@ Remove avoidable gaps in major numbers, assign minor letters contiguously within
 
 For ordinary progression, the earliest resulting open major is eligible for finalization only when the preceding major in the same category is implementation-complete.
 Major `1` has no preceding-major prerequisite.
-Treat a major as implementation-complete when its implementation succeeds.
-If its implementation fails and requires replacement work, treat that failed major as implementation-complete only after the replacement plan, or the final plan in a replacement chain, completes successfully.
+Treat a major as implementation-complete only when every work item fixed in that major has completed.
+A work item satisfies this condition when its implementation succeeds, or, after a failure that requires replacement work, when the replacement plan or the final plan in a replacement chain completes successfully.
 Do not infer implementation completion from the closed-through value; closed-through records numbering finalization, not implementation outcome.
 
 A major containing replacement work needed to complete a failed preceding major is eligible for finalization as recovery work even while that predecessor remains implementation-incomplete.
