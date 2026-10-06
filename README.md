@@ -34,7 +34,7 @@ Superseded provisional structures and numbering are working state rather than nu
 When the user instructs implementation to begin, first normalize that category's provisional assignments above the closed-through value from the latest work structure.
 Remove avoidable gaps in major numbers, assign minor letters contiguously within each affected major, and use freshly evaluated dependency and parallelism decisions from the surrounding workflow to place dependent work in later open majors.
 
-The next open major can be finalized only after the preceding major in the same category is implementation-complete.
+The next open major can be finalized only after the preceding major in the same category is complete.
 Major `1` has no preceding-major prerequisite.
 A major satisfies this predecessor-completion condition only when every work item fixed in that major has either completed implementation successfully or, after a failed implementation attempt, completed the replanning needed to establish its replacement plan.
 The replacement plan may already have a provisional work number in the next open major before that major is finalized.
