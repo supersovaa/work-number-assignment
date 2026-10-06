@@ -57,9 +57,9 @@ Remove avoidable gaps in major numbers, assign minor letters contiguously within
 
 The earliest resulting open major is eligible for finalization only when the preceding major in the same category is implementation-complete.
 Major `1` has no preceding-major prerequisite.
-Treat a major as implementation-complete only when every work item fixed in that major has completed.
-A work item satisfies this condition when its implementation succeeds, or, after a failure that requires replacement work, when the replacement plan or the final plan in a replacement chain completes successfully.
-Do not infer implementation completion from the closed-through value; closed-through records numbering finalization, not implementation outcome.
+Treat a major as complete for this predecessor condition only when every work item fixed in that major has either completed implementation successfully or, after a failed implementation attempt, completed the replanning needed to establish its replacement plan.
+A replacement plan may already have a provisional work number in the next open major while that replanning is being completed.
+Do not infer this completion from the closed-through value; closed-through records numbering finalization, not work completion.
 
 Then apply the implementation-start instruction to the earliest resulting eligible open major and finalize it.
 Advance the category's closed-through value to that major.
@@ -140,8 +140,8 @@ The surrounding workflow supplies decisions about:
 - splitting and combining work;
 - dependencies;
 - category definitions;
-- implementation outcomes and completion state of work items;
-- replacement-plan lineage;
+- implementation outcomes;
+- whether failed work has completed replanning and established its replacement plan;
 - the user's instruction to start implementation of a major;
 - the plan changes that trigger replanning.
 
