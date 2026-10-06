@@ -60,9 +60,14 @@ Remove avoidable gaps in major numbers, assign minor letters contiguously within
 
 The earliest resulting open major is eligible for finalization only when the preceding major in the same category is complete.
 Major `1` has no preceding-major prerequisite.
-Treat a major as complete for this predecessor condition only when every work item in that major has either completed implementation successfully or, after a failed implementation attempt, completed the replanning needed to establish its replacement work structure.
-Replacement work may already have provisional work numbers in open majors while that replanning is being completed.
-Do not infer this completion from the closed-through value; closed-through records current numbering finalization, not work completion.
+Treat a major as complete for this predecessor condition when no implementation remains to be done under any work item fixed in that major.
+
+Judge this from the repository's recorded work state, not from whether every fixed work item completed implementation successfully.
+For example, no implementation remains under a fixed work item when its implementation completed successfully, when a failed attempt has been replanned so any remaining implementation belongs to replacement work, or when the work item was explicitly canceled or superseded before implementation began.
+If underlying work is still required, its replacement work structure must be established before treating the original fixed work item as having no remaining implementation.
+Do not infer that no implementation remains merely because an item disappeared from the active plan.
+Replacement work may already have provisional work numbers in open majors while its structure is being established.
+Do not infer major completion from the closed-through value; closed-through records current numbering finalization, not work completion.
 
 Then apply the implementation-start instruction to the earliest resulting eligible open major and finalize it.
 Advance the category's closed-through value to that major.
@@ -160,7 +165,8 @@ The surrounding workflow supplies decisions about:
 - category definitions;
 - implementation outcomes;
 - whether implementation has actually started;
-- whether failed work has completed replanning and established its replacement work structure;
+- whether any implementation remains to be done under a fixed work item;
+- whether replacement work structure has been established when remaining implementation moves out of the fixed work item;
 - the user's instruction to start, withdraw, or revise implementation of a major;
 - the plan changes that trigger replanning.
 
