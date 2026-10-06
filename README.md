@@ -36,7 +36,9 @@ Remove avoidable gaps in major numbers, assign minor letters contiguously within
 
 The next open major can be finalized only after the preceding major in the same category is complete.
 Major `1` has no preceding-major prerequisite.
-A major satisfies this predecessor-completion condition only when every work item in that major has either completed implementation successfully or, after a failed implementation attempt, completed the replanning needed to establish its replacement work structure.
+A major satisfies this predecessor-completion condition only when every work item in that major is in a terminal state: successful implementation; completed replanning after a failed implementation attempt; or, for a finalized major whose membership is already irreversible because another item has started, explicit cancellation or supersession before that work item itself started.
+If canceled or superseded work is still required, its replacement work structure must already be established.
+The canceled work number and fixed-major membership remain historical records, and disappearance from the active plan alone is not enough to prove cancellation.
 Replacement work may already have provisional work numbers in open majors before those majors are finalized.
 The closed-through value does not itself mean work completion.
 
@@ -72,7 +74,7 @@ That downstream plan-number realignment is handled in a separate follow-up pull 
 
 ## Deliberate non-goals
 
-The surrounding workflow determines independence, parallelism, decomposition, dependencies, category definitions, implementation outcomes, whether implementation has actually started, whether failed work has completed replanning and established its replacement work structure, and the plan changes that require replanning.
+The surrounding workflow determines independence, parallelism, decomposition, dependencies, category definitions, implementation outcomes, whether implementation has actually started, whether failed work has completed replanning and established its replacement work structure, whether an unstarted fixed work item is explicitly canceled or superseded and has any required replacement structure established, and the plan changes that require replanning.
 
 This skill assigns work numbers, finalizes a major on the user's implementation-start signal, allows that finalization to be reopened before actual implementation starts, records the current closed-through major, and preserves numbering history once implementation begins.
 
