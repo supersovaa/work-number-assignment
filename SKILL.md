@@ -65,7 +65,6 @@ Treat a major as complete for this predecessor condition when no implementation 
 Judge this from the repository's recorded work state, not from whether every fixed work item completed implementation successfully.
 For example, no implementation remains under a fixed work item when its implementation completed successfully, when a failed attempt has been replanned so any remaining implementation belongs to replacement work, or when the work item was explicitly canceled or superseded before implementation began.
 If underlying work is still required, its replacement work structure must be established before treating the original fixed work item as having no remaining implementation.
-A canceled or superseded fixed work item keeps its historical work number and fixed-major membership.
 Do not infer that no implementation remains merely because an item disappeared from the active plan.
 Replacement work may already have provisional work numbers in open majors while its structure is being established.
 Do not infer major completion from the closed-through value; closed-through records current numbering finalization, not work completion.
