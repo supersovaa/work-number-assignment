@@ -35,7 +35,7 @@
 - Normalization removes avoidable major-number gaps, makes minor letters contiguous within each affected major, and applies freshly evaluated dependency and parallelism decisions from the surrounding workflow.
 - The earliest resulting open major is eligible for finalization only after the preceding major in the same category is complete.
 - Major `1` has no preceding-major prerequisite.
-- A major satisfies the predecessor-completion condition only when every work item whose numbering became irreversible in that major has either completed implementation successfully or, after a failed implementation attempt, completed the replanning needed to establish its replacement work structure.
+- A major satisfies the predecessor-completion condition only when every work item in that major has either completed implementation successfully or, after a failed implementation attempt, completed the replanning needed to establish its replacement work structure.
 - Replacement work may already have provisional work numbers in open majors while replanning is being completed.
 - The closed-through value records current numbering finalization and does not itself establish work completion.
 - The implementation-start instruction then applies to the earliest resulting eligible open major and finalizes it.
