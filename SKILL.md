@@ -60,16 +60,14 @@ Remove avoidable gaps in major numbers, assign minor letters contiguously within
 
 The earliest resulting open major is eligible for finalization only when the preceding major in the same category is complete.
 Major `1` has no preceding-major prerequisite.
-Treat a major as complete for this predecessor condition only when every work item in that major is in one of these terminal states:
+Treat a major as complete for this predecessor condition when no implementation remains to be done under any work item fixed in that major.
 
-- implementation completed successfully;
-- after a failed implementation attempt, the replanning needed to establish its replacement work structure completed;
-- implementation never started for that work item, and the repository explicitly records that the fixed work item was canceled or superseded. If the underlying work remains required, its replacement work structure must also be established.
-
-Use the third state only for a finalized major whose membership is already irreversible because implementation has started for another work item in that major.
-A pre-implementation cancellation does not remove the historical work number or fixed-major membership.
-Do not infer cancellation from an item disappearing from the active plan; require an explicit recorded terminal status.
-Replacement work may already have provisional work numbers in open majors while replanning or replacement establishment is being completed.
+Judge this from the repository's recorded work state, not from whether every fixed work item completed implementation successfully.
+For example, no implementation remains under a fixed work item when its implementation completed successfully, when a failed attempt has been replanned so any remaining implementation belongs to replacement work, or when the work item was explicitly canceled or superseded before implementation began.
+If underlying work is still required, its replacement work structure must be established before treating the original fixed work item as having no remaining implementation.
+A canceled or superseded fixed work item keeps its historical work number and fixed-major membership.
+Do not infer that no implementation remains merely because an item disappeared from the active plan.
+Replacement work may already have provisional work numbers in open majors while its structure is being established.
 Do not infer major completion from the closed-through value; closed-through records current numbering finalization, not work completion.
 
 Then apply the implementation-start instruction to the earliest resulting eligible open major and finalize it.
@@ -168,8 +166,8 @@ The surrounding workflow supplies decisions about:
 - category definitions;
 - implementation outcomes;
 - whether implementation has actually started;
-- whether failed work has completed replanning and established its replacement work structure;
-- whether an unstarted fixed work item is explicitly canceled or superseded and, when work remains required, whether its replacement work structure is established;
+- whether any implementation remains to be done under a fixed work item;
+- whether replacement work structure has been established when remaining implementation moves out of the fixed work item;
 - the user's instruction to start, withdraw, or revise implementation of a major;
 - the plan changes that trigger replanning.
 
