@@ -34,8 +34,9 @@
 - Normalization removes avoidable major-number gaps, makes minor letters contiguous within each affected major, and applies freshly evaluated dependency and parallelism decisions from the surrounding workflow.
 - For ordinary progression, the earliest resulting open major is eligible for finalization only after the preceding major in the same category is implementation-complete.
 - Major `1` has no preceding-major prerequisite.
-- A major is implementation-complete when its implementation succeeds.
-- If a major fails and requires replacement work, it becomes implementation-complete only when the replacement plan, or the final plan in a replacement chain, completes successfully.
+- A major is implementation-complete only when every work item fixed in that major has completed.
+- A work item completes when its implementation succeeds.
+- If a work item fails and requires replacement work, it completes only when the replacement plan, or the final plan in a replacement chain, completes successfully.
 - The closed-through value records numbering finalization and does not itself establish implementation completion.
 - Replacement work needed to complete a failed preceding major is recovery work and may be finalized while that predecessor remains implementation-incomplete.
 - Recovery work is normalized with the other provisional assignments before finalization so current dependency and parallelism decisions determine the recovery major's membership.
