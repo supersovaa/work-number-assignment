@@ -36,7 +36,7 @@ Remove avoidable gaps in major numbers, assign minor letters contiguously within
 
 The next open major can be finalized only after the preceding major in the same category is complete.
 Major `1` has no preceding-major prerequisite.
-A major satisfies this predecessor-completion condition only when every work item whose numbering became irreversible in that major has either completed implementation successfully or, after a failed implementation attempt, completed the replanning needed to establish its replacement work structure.
+A major satisfies this predecessor-completion condition only when every work item in that major has either completed implementation successfully or, after a failed implementation attempt, completed the replanning needed to establish its replacement work structure.
 Replacement work may already have provisional work numbers in open majors before those majors are finalized.
 The closed-through value does not itself mean work completion.
 
