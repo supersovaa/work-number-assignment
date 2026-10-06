@@ -34,14 +34,11 @@ Superseded provisional structures and numbering are working state rather than nu
 When the user instructs implementation to begin, first normalize that category's provisional assignments above the closed-through value from the latest work structure.
 Remove avoidable gaps in major numbers, assign minor letters contiguously within each affected major, and use freshly evaluated dependency and parallelism decisions from the surrounding workflow to place dependent work in later open majors.
 
-For ordinary progression, the next open major can be finalized only after the preceding major in the same category is implementation-complete.
+The next open major can be finalized only after the preceding major in the same category is implementation-complete.
 Major `1` has no preceding-major prerequisite.
 A major is implementation-complete only when every work item fixed in that major has completed.
 A work item satisfies this condition when its implementation succeeds, or, after a failure that requires replacement work, when the replacement plan or final plan in the replacement chain completes successfully.
 The closed-through value does not itself mean implementation completion.
-
-Replacement work needed to complete a failed preceding major is recovery work and may be finalized while that predecessor remains implementation-incomplete.
-Normalize provisional assignments before finalizing the recovery major so the latest dependency and parallelism structure still governs its membership.
 
 Then finalize the earliest resulting eligible open major and advance the category's closed-through value to that major.
 Closing the major fixes its membership and puts its work numbers into active use before implementation begins.
