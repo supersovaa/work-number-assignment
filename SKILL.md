@@ -143,8 +143,8 @@ The surrounding workflow supplies decisions about:
 - splitting and combining work;
 - dependencies;
 - category definitions;
-- implementation outcomes and whether a preceding major is implementation-complete;
-- whether replacement work completes the failed major it replaces;
+- implementation outcomes and completion state of work items;
+- replacement-plan lineage;
 - the user's instruction to start implementation of a major;
 - the plan changes that trigger replanning.
 
