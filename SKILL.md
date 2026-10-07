@@ -64,7 +64,8 @@ Treat a major as complete for this predecessor condition when no implementation 
 
 Judge this from the repository's recorded work state, not from whether every fixed work item completed implementation successfully.
 For example, no implementation remains under a fixed work item when its implementation completed successfully, when a failed attempt has been replanned so any remaining implementation belongs to replacement work, or when the work item was explicitly canceled or superseded before implementation began.
-Treat completed implementation that is waiting on a merge prerequisite as having no implementation remaining for this predecessor condition.
+The predecessor-completion condition tracks remaining implementation work.
+A completed implementation satisfies that condition while merge prerequisites govern its later incorporation.
 If underlying work is still required, its replacement work structure must be established before treating the original fixed work item as having no remaining implementation.
 Do not infer that no implementation remains merely because an item disappeared from the active plan.
 Replacement work may already have provisional work numbers in open majors while its structure is being established.
@@ -99,7 +100,8 @@ Work items that can proceed in parallel may share the same open major number.
 
 When assigning numbers to multiple plans added together within the same category, each plan that depends on another plan in that same addition uses a later major number than that dependency.
 
-A merge prerequisite alone does not require a later major number; major placement follows implementation dependency and parallelism.
+Assign major numbers from implementation dependency and parallelism.
+Merge prerequisites govern incorporation order.
 
 Work that belongs to a later non-parallel stage uses a later major number.
 
