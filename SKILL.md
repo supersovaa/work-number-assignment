@@ -64,6 +64,7 @@ Treat a major as complete for this predecessor condition when no implementation 
 
 Judge this from the repository's recorded work state, not from whether every fixed work item completed implementation successfully.
 For example, no implementation remains under a fixed work item when its implementation completed successfully, when a failed attempt has been replanned so any remaining implementation belongs to replacement work, or when the work item was explicitly canceled or superseded before implementation began.
+Treat completed implementation that is waiting on a merge prerequisite as having no implementation remaining for this predecessor condition.
 If underlying work is still required, its replacement work structure must be established before treating the original fixed work item as having no remaining implementation.
 Do not infer that no implementation remains merely because an item disappeared from the active plan.
 Replacement work may already have provisional work numbers in open majors while its structure is being established.
@@ -167,6 +168,7 @@ The surrounding workflow supplies decisions about:
 - whether implementation has actually started;
 - whether any implementation remains to be done under a fixed work item;
 - whether replacement work structure has been established when remaining implementation moves out of the fixed work item;
+- merge prerequisites and whether their conditions are currently satisfied;
 - the user's instruction to start, withdraw, or revise implementation of a major;
 - the plan changes that trigger replanning.
 
