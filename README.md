@@ -60,7 +60,8 @@ Within each category:
 - numbering starts at major `1` when no prior numbers are found;
 - parallel work may share the same open major;
 - parallel items use `A`, `B`, `C`, ...;
-- within the same category, plans added together use later majors when one depends on another plan in that same addition;
+- within the same category, plans added together use later majors when one has an implementation dependency on another plan in that same addition;
+- merge prerequisites alone do not require later majors;
 - later non-parallel stages use later majors;
 - new work uses a major above the closed-through value;
 - ordinary scope revisions keep the same number while the work item remains viable;
