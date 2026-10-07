@@ -56,7 +56,7 @@ Keep assignments in unstarted open majors provisional.
 Provisional assignments may contain gaps in major numbers or minor letters while work is being split, combined, removed, or realigned.
 
 When the user instructs implementation of a major to begin, first normalize that category's provisional assignments above the closed-through value from the latest work structure.
-Remove avoidable gaps in major numbers, assign minor letters contiguously within each affected major, and use dependency and parallelism decisions freshly evaluated by the surrounding workflow from the latest repository state to move dependent work to later open majors under the normal numbering rules.
+Remove avoidable gaps in major numbers, assign minor letters contiguously within each affected major, and use implementation-dependency and parallelism decisions freshly evaluated by the surrounding workflow from the latest repository state to move dependent work to later open majors under the normal numbering rules.
 
 The earliest resulting open major is eligible for finalization only when the preceding major in the same category is complete.
 Major `1` has no preceding-major prerequisite.
@@ -90,13 +90,15 @@ Do not reopen or renumber that major afterward.
 
 ## Major numbers
 
+An implementation dependency means that one work item requires another work item's established result before implementation can begin.
+
 Major numbers are independent within each category.
 
 Start from `1` when the category has no existing work number.
 
 Work items that can proceed in parallel may share the same open major number.
 
-When assigning numbers to multiple plans added together within the same category, each plan that depends on another plan in that same addition uses a later major number than that dependency.
+When assigning numbers to multiple plans added together within the same category, each plan that has an implementation dependency on another plan in that same addition uses a later major number than that dependency.
 
 Work that belongs to a later non-parallel stage uses a later major number.
 
@@ -161,7 +163,7 @@ The surrounding workflow supplies decisions about:
 - parallelism;
 - decomposition;
 - splitting and combining work;
-- dependencies;
+- implementation dependencies;
 - category definitions;
 - implementation outcomes;
 - whether implementation has actually started;
