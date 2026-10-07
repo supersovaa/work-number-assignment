@@ -39,7 +39,8 @@ Major `1` has no preceding-major prerequisite.
 A major satisfies this predecessor-completion condition when no implementation remains to be done under any work item fixed in that major.
 This is not the same as requiring every fixed work item to complete implementation successfully.
 Implementation may be exhausted because it succeeded, because a failed attempt was replanned and remaining implementation moved to replacement work, or because the fixed work item was explicitly canceled or superseded before implementation began.
-Completed implementation waiting on a merge prerequisite still counts as having no implementation remaining for this predecessor condition.
+The predecessor-completion condition tracks remaining implementation work.
+Completed implementation satisfies it, while merge prerequisites govern later incorporation.
 If underlying work is still required, its replacement work structure must already be established.
 Disappearance from the active plan alone is not enough to show that no implementation remains.
 Replacement work may already have provisional work numbers in open majors before those majors are finalized.
@@ -61,7 +62,7 @@ Within each category:
 - parallel work may share the same open major;
 - parallel items use `A`, `B`, `C`, ...;
 - within the same category, plans added together use later majors when one has an implementation dependency on another plan in that same addition;
-- merge prerequisites alone do not require later majors;
+- major placement follows implementation dependency and parallelism, while merge prerequisites govern incorporation order;
 - later non-parallel stages use later majors;
 - new work uses a major above the closed-through value;
 - ordinary scope revisions keep the same number while the work item remains viable;
