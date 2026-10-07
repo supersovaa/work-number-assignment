@@ -32,15 +32,13 @@ Provisional assignments may contain gaps in major numbers or minor letters while
 Superseded provisional structures and numbering are working state rather than numbering history, so the authoritative records are updated to the current provisional state instead of retaining the superseded state.
 
 When the user instructs implementation to begin, first normalize that category's provisional assignments above the closed-through value from the latest work structure.
-Remove avoidable gaps in major numbers, assign minor letters contiguously within each affected major, and use freshly evaluated dependency and parallelism decisions from the surrounding workflow to place dependent work in later open majors.
+Remove avoidable gaps in major numbers, assign minor letters contiguously within each affected major, and use freshly evaluated implementation-dependency and parallelism decisions from the surrounding workflow to place dependent work in later open majors.
 
 The next open major can be finalized only after the preceding major in the same category is complete.
 Major `1` has no preceding-major prerequisite.
 A major satisfies this predecessor-completion condition when no implementation remains to be done under any work item fixed in that major.
 This is not the same as requiring every fixed work item to complete implementation successfully.
 Implementation may be exhausted because it succeeded, because a failed attempt was replanned and remaining implementation moved to replacement work, or because the fixed work item was explicitly canceled or superseded before implementation began.
-The predecessor-completion condition tracks remaining implementation work.
-Completed implementation satisfies it, while merge prerequisites govern later incorporation.
 If underlying work is still required, its replacement work structure must already be established.
 Disappearance from the active plan alone is not enough to show that no implementation remains.
 Replacement work may already have provisional work numbers in open majors before those majors are finalized.
@@ -62,7 +60,6 @@ Within each category:
 - parallel work may share the same open major;
 - parallel items use `A`, `B`, `C`, ...;
 - within the same category, plans added together use later majors when one has an implementation dependency on another plan in that same addition;
-- major placement follows implementation dependency and parallelism, while merge prerequisites govern incorporation order;
 - later non-parallel stages use later majors;
 - new work uses a major above the closed-through value;
 - ordinary scope revisions keep the same number while the work item remains viable;
@@ -79,7 +76,7 @@ That downstream plan-number realignment is handled in a separate follow-up pull 
 
 ## Deliberate non-goals
 
-The surrounding workflow determines independence, parallelism, decomposition, dependencies, merge prerequisites and their satisfaction, category definitions, implementation outcomes, whether implementation has actually started, whether any implementation remains under a fixed work item, whether replacement work structure has been established when remaining implementation moves elsewhere, and the plan changes that require replanning.
+The surrounding workflow determines independence, parallelism, decomposition, implementation dependencies, category definitions, implementation outcomes, whether implementation has actually started, whether any implementation remains under a fixed work item, whether replacement work structure has been established when remaining implementation moves elsewhere, and the plan changes that require replanning.
 
 This skill assigns work numbers, finalizes a major on the user's implementation-start signal, allows that finalization to be reopened before actual implementation starts, records the current closed-through major, and preserves numbering history once implementation begins.
 
