@@ -90,6 +90,8 @@ Do not reopen or renumber that major afterward.
 
 ## Major numbers
 
+An implementation dependency means that one work item requires another work item's established result before implementation can begin.
+
 Major numbers are independent within each category.
 
 Start from `1` when the category has no existing work number.
