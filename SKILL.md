@@ -99,6 +99,8 @@ Work items that can proceed in parallel may share the same open major number.
 
 When assigning numbers to multiple plans added together within the same category, each plan that depends on another plan in that same addition uses a later major number than that dependency.
 
+A merge prerequisite alone does not require a later major number; major placement follows implementation dependency and parallelism.
+
 Work that belongs to a later non-parallel stage uses a later major number.
 
 New work receives a major above the category's closed-through value.
