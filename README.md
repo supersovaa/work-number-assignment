@@ -54,6 +54,8 @@ The earlier instruction to begin implementation does not by itself prove that im
 Once implementation actually begins for any work item in a finalized major, that major's membership and work numbers become irreversible history.
 The closed-through value must never be rolled back below a major whose implementation has actually started.
 
+An implementation dependency means that one work item requires another work item's established result before implementation can begin.
+
 Within each category:
 
 - numbering starts at major `1` when no prior numbers are found;
