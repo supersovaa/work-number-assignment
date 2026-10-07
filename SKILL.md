@@ -56,7 +56,7 @@ Keep assignments in unstarted open majors provisional.
 Provisional assignments may contain gaps in major numbers or minor letters while work is being split, combined, removed, or realigned.
 
 When the user instructs implementation of a major to begin, first normalize that category's provisional assignments above the closed-through value from the latest work structure.
-Remove avoidable gaps in major numbers, assign minor letters contiguously within each affected major, and use dependency and parallelism decisions freshly evaluated by the surrounding workflow from the latest repository state to move dependent work to later open majors under the normal numbering rules.
+Remove avoidable gaps in major numbers, assign minor letters contiguously within each affected major, and use implementation-dependency and parallelism decisions freshly evaluated by the surrounding workflow from the latest repository state to move dependent work to later open majors under the normal numbering rules.
 
 The earliest resulting open major is eligible for finalization only when the preceding major in the same category is complete.
 Major `1` has no preceding-major prerequisite.
@@ -64,8 +64,6 @@ Treat a major as complete for this predecessor condition when no implementation 
 
 Judge this from the repository's recorded work state, not from whether every fixed work item completed implementation successfully.
 For example, no implementation remains under a fixed work item when its implementation completed successfully, when a failed attempt has been replanned so any remaining implementation belongs to replacement work, or when the work item was explicitly canceled or superseded before implementation began.
-The predecessor-completion condition tracks remaining implementation work.
-A completed implementation satisfies that condition while merge prerequisites govern its later incorporation.
 If underlying work is still required, its replacement work structure must be established before treating the original fixed work item as having no remaining implementation.
 Do not infer that no implementation remains merely because an item disappeared from the active plan.
 Replacement work may already have provisional work numbers in open majors while its structure is being established.
@@ -98,10 +96,7 @@ Start from `1` when the category has no existing work number.
 
 Work items that can proceed in parallel may share the same open major number.
 
-When assigning numbers to multiple plans added together within the same category, each plan that depends on another plan in that same addition uses a later major number than that dependency.
-
-Assign major numbers from implementation dependency and parallelism.
-Merge prerequisites govern incorporation order.
+When assigning numbers to multiple plans added together within the same category, each plan that has an implementation dependency on another plan in that same addition uses a later major number than that dependency.
 
 Work that belongs to a later non-parallel stage uses a later major number.
 
@@ -166,13 +161,12 @@ The surrounding workflow supplies decisions about:
 - parallelism;
 - decomposition;
 - splitting and combining work;
-- dependencies;
+- implementation dependencies;
 - category definitions;
 - implementation outcomes;
 - whether implementation has actually started;
 - whether any implementation remains to be done under a fixed work item;
 - whether replacement work structure has been established when remaining implementation moves out of the fixed work item;
-- merge prerequisites and whether their conditions are currently satisfied;
 - the user's instruction to start, withdraw, or revise implementation of a major;
 - the plan changes that trigger replanning.
 
