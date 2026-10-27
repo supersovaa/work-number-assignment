@@ -1,6 +1,6 @@
 ---
 name: work-number-assignment
-description: Decide whether implementation work is an unnumbered one-off, belongs to an active work-number series, or warrants a new series; manage series retirement and assign repository-defined work numbers, including major finalization, reopening, and replanning history.
+description: At the start of new implementation work, choose unnumbered one-off tracking, an existing active work-number series, or a new series; also manage series retirement, number assignment, major finalization, reopening, and replanning history.
 ---
 
 # Work Number Assignment
