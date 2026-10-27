@@ -88,4 +88,4 @@ This skill selects numbered or unnumbered tracking, assigns or retires work-numb
 
 ## Installation
 
-Install this repository's `SKILL.md` as the `work-number-assignment` skill using the target agent's skill loader. Make the working repository's category definitions and work-number records available to the agent through its ordinary repository access.
+Install this repository's `SKILL.md` as the `work-number-assignment` skill using the target agent's skill loader. Link it from the working repository's entry point for starting or classifying new implementation work, before deciding whether any number is needed; retain the existing number-finalization entry as well. Make the working repository's category definitions and work-number records available through ordinary repository access.
