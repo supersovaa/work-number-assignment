@@ -5,7 +5,7 @@ description: At the start of new implementation work, choose unnumbered one-off 
 
 # Work Number Assignment
 
-Use this skill when deciding whether new implementation work needs a numbered series, assigning or retiring a series, assigning work numbers, or finalizing or reopening a major before implementation begins.
+Use this skill when starting new implementation work that needs a tracking decision, including a task that may use no work number, or when assigning or retiring a series, assigning numbers, or finalizing or reopening a major.
 
 ## Number format
 
