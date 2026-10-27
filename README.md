@@ -82,11 +82,10 @@ That downstream plan-number realignment is handled in a separate follow-up pull 
 
 ## Deliberate non-goals
 
-The surrounding workflow determines independence, parallelism, decomposition, implementation dependencies, category definitions, implementation outcomes, whether implementation has actually started, whether any implementation remains under a fixed work item, whether replacement work structure has been established when remaining implementation moves elsewhere, and the plan changes that require replanning.
+The surrounding workflow determines independence, parallelism, decomposition, implementation dependencies, the work's completion target, implementation outcomes, whether implementation has actually started, whether any implementation remains under a fixed work item, whether replacement work structure has been established when remaining implementation moves elsewhere, and the plan changes that require replanning.
 
 This skill selects numbered or unnumbered tracking, assigns or retires work-number series, finalizes and reopens majors under the established conditions, and preserves numbering history once implementation begins.
 
-## Name
+## Installation
 
-`work-number-assignment` is only a packaging name for this draft.
-The behavior does not depend on the final published skill name.
+Install this repository's `SKILL.md` as the `work-number-assignment` skill using the target agent's skill loader. Make the working repository's category definitions and work-number records available to the agent through its ordinary repository access.
