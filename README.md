@@ -1,6 +1,6 @@
 # Work Number Assignment
 
-A lightweight skill for assigning repository-defined work numbers such as `T1-A`, finalizing the earliest eligible open major when the user starts implementation, and reopening that finalization while implementation has not actually started.
+A lightweight skill for deciding when implementation work needs a numbered series, selecting or creating that series, retiring completed series, and assigning repository-defined work numbers such as `T1-A`.
 
 ## Behavior
 
@@ -20,6 +20,10 @@ T2-A
 
 The repository defines category prefixes such as `T`.
 The skill uses only repository-defined category meanings and discovers the work-number records through repository conventions without assuming a fixed file or path.
+
+Before numbering work, check relevant existing categories for a completed target and record retirement when eligible. Work advancing an active series target stays in that series, including a change that fits in one PR. Outside active series, choose between an independent unnumbered one-off and a new category with a distinct multi-stage completion target. One-off changes can use a single PR and verification record; a more involved standalone task can use an unnumbered persistent plan. Applicable workflow and repository planning requirements still apply.
+
+A category is `active` while it accepts new numbered work and `retired` when its target is established at the repository's completion/integration boundary or formally concluded and remaining work is resolved. Record retirement with the existing category definition and preserve all historical assignments. Existing categories without an explicit state are active until their state is recorded. Work on a previously completed feature is classified from its current objective, not its old work number.
 
 Each category records the highest currently finalized major in the same authoritative records as the work-number assignments:
 
@@ -65,7 +69,7 @@ Within each category:
 - later non-parallel stages use later majors;
 - new work uses a major above the closed-through value;
 - ordinary scope revisions keep the same number while the work item remains viable;
-- replanned work preserves the old number as history and starts at the next major.
+- replanning an active attempt preserves the old number as history and starts at the next major in that active series; later changes to completed features are classified as new work.
 
 For example, replanning work in `T3` uses `T4`.
 If `T4-A` already exists, the replanned work uses the next free minor such as `T4-B`.
@@ -78,11 +82,10 @@ That downstream plan-number realignment is handled in a separate follow-up pull 
 
 ## Deliberate non-goals
 
-The surrounding workflow determines independence, parallelism, decomposition, implementation dependencies, category definitions, implementation outcomes, whether implementation has actually started, whether any implementation remains under a fixed work item, whether replacement work structure has been established when remaining implementation moves elsewhere, and the plan changes that require replanning.
+The surrounding workflow determines independence, parallelism, decomposition, implementation dependencies, the work's completion target, implementation outcomes, whether implementation has actually started, whether any implementation remains under a fixed work item, whether replacement work structure has been established when remaining implementation moves elsewhere, and the plan changes that require replanning.
 
-This skill assigns work numbers, finalizes a major on the user's implementation-start signal, allows that finalization to be reopened before actual implementation starts, records the current closed-through major, and preserves numbering history once implementation begins.
+This skill selects numbered or unnumbered tracking, assigns or retires work-number series, finalizes and reopens majors under the established conditions, and preserves numbering history once implementation begins.
 
-## Name
+## Installation
 
-`work-number-assignment` is only a packaging name for this draft.
-The behavior does not depend on the final published skill name.
+Install this repository's `SKILL.md` as the `work-number-assignment` skill using the target agent's skill loader. Link it from the working repository's entry point for starting or classifying new implementation work, before deciding whether any number is needed; retain the existing number-finalization entry as well. Make the working repository's category definitions and work-number records available through ordinary repository access.
