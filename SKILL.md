@@ -1,11 +1,11 @@
 ---
 name: work-number-assignment
-description: Assign repository-defined work numbers such as T1-A to upcoming implementation work, finalize the earliest eligible open major when the user instructs implementation to begin, and allow that finalization to be reopened until implementation actually starts. Use repository-defined categories, a per-category closed-through major, predecessor-completion gating, parallel-stage grouping, and the next major for replanned work while preserving numbering history once implementation has begun.
+description: Decide whether implementation work is an unnumbered one-off, belongs to an active work-number series, or warrants a new series; manage series retirement and assign repository-defined work numbers, including major finalization, reopening, and replanning history.
 ---
 
 # Work Number Assignment
 
-Use this skill when assigning work numbers to upcoming implementation work, when the user instructs implementation of a major to begin, or when the user withdraws or revises that pending implementation before it actually starts.
+Use this skill when deciding whether new implementation work needs a numbered series, assigning or retiring a series, assigning work numbers, or finalizing or reopening a major before implementation begins.
 
 ## Number format
 
@@ -30,6 +30,27 @@ The repository defines the available category prefixes and what each category me
 Use only repository-defined category meanings.
 
 Discover category definitions and work-number records from repository instructions or documentation without assuming a fixed filename or path.
+
+## Select the work's tracking scope
+
+Choose the tracking scope from the current work's purpose and completion boundary before assigning a number:
+
+- **Independent one-off:** When one bounded change can be implemented and verified in one pull request without staged coordination, use that pull request and its validation evidence as the work record. For a standalone change that needs a durable implementation contract, use a semantic, unnumbered implementation plan under the repository's normal planning rules.
+- **Existing series:** When work advances the defined completion target of an active category, assign it to that category.
+- **New series:** When work has a distinct completion target requiring multiple coordinated plans or stages, define a new repository category and its meaning before numbering its work.
+
+Apply any more specific repository rule requiring a plan or work number. Re-evaluate the current work's purpose even when it changes code originally established by a completed plan: that plan's category and number are historical context, not a default assignment for later changes. When an independent one-off grows into coordinated future work, classify and number the future work while retaining the earlier pull request as history.
+
+## Series lifecycle
+
+Use two category states in the existing authoritative work-number records:
+
+- `active`: accepts new numbered work toward its defined completion target.
+- `retired`: preserves the series' numbering and implementation history after numbering has ended.
+
+A series can become `retired` when its completion target is reached or formally concluded and all remaining work has been completed, transferred to an appropriate active or new series, or canceled. Record the retirement where the category is defined. Treat existing categories with no explicit lifecycle state as `active` until their state is recorded.
+
+A retired series retains all existing numbers, completed plans, and results. Classify later changes using their current objective as an independent one-off, work in another active series, or a new series. Category retirement and a major's `closed-through` value represent different facts: a finalized major may coexist with an active series.
 
 ## Closed-through major
 
@@ -132,9 +153,11 @@ Once implementation actually starts in a finalized major, preserve its work numb
 
 ## Replanning
 
+Replanning an attempted work item within an active series retains that series. A subsequent change to a completed feature is new work: choose its tracking scope from the present objective before numbering it.
+
 When an implementation attempt in major `N` requires replanning, preserve the old work number with its earlier plan or attempt history.
 
-Begin numbering replanned work at major `N+1`.
+Begin numbering replanned work in the same active series at major `N+1`.
 
 For replanned work placed in `N+1`, assign the next available minor letter.
 For example, if `T4-A` already exists, assign the replanned work `T4-B`.
@@ -155,7 +178,7 @@ The surrounding planning context determines whether the revised plan still repre
 
 ## Responsibility boundary
 
-This skill assigns work numbers, finalizes or reopens majors when permitted, and preserves numbering history once implementation begins.
+This skill chooses numbered or unnumbered work tracking, selects or creates a series, records retirement, assigns work numbers, finalizes or reopens majors when permitted, and preserves numbering history once implementation begins.
 
 The surrounding workflow supplies decisions about:
 
@@ -164,7 +187,7 @@ The surrounding workflow supplies decisions about:
 - decomposition;
 - splitting and combining work;
 - implementation dependencies;
-- category definitions;
+- the work's completion target and whether a durable plan is required;
 - implementation outcomes;
 - whether implementation has actually started;
 - whether any implementation remains to be done under a fixed work item;
@@ -174,6 +197,6 @@ The surrounding workflow supplies decisions about:
 
 ## Output
 
-Return assigned work numbers clearly and associate each number with its corresponding work item when multiple items are numbered.
+Return the selected tracking scope and its basis. For numbered work, identify the active series and associate each assigned number with its corresponding work item. For independent one-offs, report the unnumbered PR or plan boundary.
 
 When numbering changes create downstream inconsistencies in existing plans, also identify the need for a separate plan-number realignment pull request.
