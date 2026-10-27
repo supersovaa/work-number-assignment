@@ -21,9 +21,9 @@ T2-A
 The repository defines category prefixes such as `T`.
 The skill uses only repository-defined category meanings and discovers the work-number records through repository conventions without assuming a fixed file or path.
 
-Before numbering work, choose among an independent unnumbered one-off, a task in an existing active category, and a new category with a distinct multi-stage completion target. One-off changes can use a single PR and verification record; a more involved standalone task can use an unnumbered persistent plan. More specific repository planning requirements still apply.
+Before numbering work, check relevant existing categories for a completed target and record retirement when eligible. Work advancing an active series target stays in that series, including a change that fits in one PR. Outside active series, choose between an independent unnumbered one-off and a new category with a distinct multi-stage completion target. One-off changes can use a single PR and verification record; a more involved standalone task can use an unnumbered persistent plan. Applicable workflow and repository planning requirements still apply.
 
-A category is `active` while it accepts new numbered work and `retired` after its completion target has concluded and remaining work is resolved. Record retirement with the existing category definition and preserve all historical assignments. Existing categories without an explicit state remain active until classified. Work on a previously completed feature is classified from its current objective, not its old work number.
+A category is `active` while it accepts new numbered work and `retired` when its target is established at the repository's completion/integration boundary or formally concluded and remaining work is resolved. Record retirement with the existing category definition and preserve all historical assignments. Existing categories without an explicit state are active until their state is recorded. Work on a previously completed feature is classified from its current objective, not its old work number.
 
 Each category records the highest currently finalized major in the same authoritative records as the work-number assignments:
 
