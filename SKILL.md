@@ -33,13 +33,13 @@ Discover category definitions and work-number records from repository instructio
 
 ## Select the work's tracking scope
 
-Choose the tracking scope from the current work's purpose and completion boundary before assigning a number:
+Choose the tracking scope from the current work's purpose and completion boundary before assigning a number. Check relevant existing categories for completed targets and resolve eligible retirement first. Work advancing an active category's completion target belongs to that category, even if the individual change fits in one pull request.
 
-- **Independent one-off:** When one bounded change can be implemented and verified in one pull request without staged coordination, use that pull request and its validation evidence as the work record. For a standalone change that needs a durable implementation contract, use a semantic, unnumbered implementation plan under the repository's normal planning rules.
 - **Existing series:** When work advances the defined completion target of an active category, assign it to that category.
+- **Independent one-off:** When work sits outside active series targets and one bounded change can be implemented and verified in one pull request without staged coordination, use that pull request and its validation evidence as the work record. For a standalone change that needs a durable implementation contract, use a semantic, unnumbered implementation plan under the repository's normal planning rules.
 - **New series:** When work has a distinct completion target requiring multiple coordinated plans or stages, define a new repository category and its meaning before numbering its work.
 
-Apply any more specific repository rule requiring a plan or work number. Re-evaluate the current work's purpose even when it changes code originally established by a completed plan: that plan's category and number are historical context, not a default assignment for later changes. When an independent one-off grows into coordinated future work, classify and number the future work while retaining the earlier pull request as history.
+Apply applicable workflow and repository rules requiring a persistent plan or work number. Re-evaluate the current work's purpose even when it changes code originally established by a completed plan: that plan's category and number are historical context, not a default assignment for later changes. When an independent one-off grows into coordinated future work, classify and number the future work while retaining the earlier pull request as history.
 
 ## Series lifecycle
 
@@ -48,7 +48,7 @@ Use two category states in the existing authoritative work-number records:
 - `active`: accepts new numbered work toward its defined completion target.
 - `retired`: preserves the series' numbering and implementation history after numbering has ended.
 
-A series can become `retired` when its completion target is reached or formally concluded and all remaining work has been completed, transferred to an appropriate active or new series, or canceled. Record the retirement where the category is defined. Treat existing categories with no explicit lifecycle state as `active` until their state is recorded.
+Record a series as `retired` when its completion target is established at the repository-defined completion/integration boundary or formally concluded, and all remaining work is completed, transferred to an appropriate active or new series, or canceled. Make this determination when completing a series and when evaluating a relevant existing category for new work. Record the retirement where the category is defined. Treat categories with no explicit lifecycle state as `active` until the state is recorded.
 
 A retired series retains all existing numbers, completed plans, and results. Classify later changes using their current objective as an independent one-off, work in another active series, or a new series. Category retirement and a major's `closed-through` value represent different facts: a finalized major may coexist with an active series.
 
