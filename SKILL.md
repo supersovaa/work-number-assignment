@@ -1,11 +1,11 @@
 ---
 name: work-number-assignment
-description: At the start of new implementation work, choose unnumbered one-off tracking, an existing active work-number series, or a new series; also manage series retirement, number assignment, major finalization, reopening, and replanning history.
+description: Use when starting implementation work or managing existing work-number assignments and series.
 ---
 
 # Work Number Assignment
 
-Use this skill when starting new implementation work that needs a tracking decision, including a task that may use no work number, or when assigning or retiring a series, assigning numbers, or finalizing or reopening a major.
+At the start of new work, decide whether it needs a number and, if so, which series owns it. Apply the corresponding lifecycle rules when assigning or retiring a series, assigning numbers, finalizing or reopening a major, or recording replanning.
 
 ## Number format
 
